@@ -11,14 +11,26 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
+import androidx.recyclerview.widget.DefaultItemAnimator;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.driveit.R;
+import com.example.driveit.adapter.HomeAdapter;
 import com.example.driveit.databinding.FragmentHomeBinding;
+import com.example.driveit.model.ModelHome;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class HomeFragment extends Fragment {
 
     private HomeViewModel homeViewModel;
     private FragmentHomeBinding binding;
+
+    private List<ModelHome> menuList = new ArrayList<>();
+    private RecyclerView recyclerView;
+    private HomeAdapter mAdapter;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -28,13 +40,19 @@ public class HomeFragment extends Fragment {
         binding = FragmentHomeBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
-        final TextView textView = binding.textHome;
-        homeViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
-            @Override
-            public void onChanged(@Nullable String s) {
-                textView.setText(s);
-            }
-        });
+        recyclerView = root.findViewById(R.id.home_recycler_view);
+        mAdapter = new HomeAdapter(getContext(), menuList);
+
+
+        // int mNoOfColumns = Utility.calculateNoOfColumns(getContext(),180);
+        RecyclerView.LayoutManager layoutManager = new GridLayoutManager(getContext(), 2);
+        recyclerView.setHasFixedSize(true);
+        recyclerView.setLayoutManager(layoutManager);
+        recyclerView.setItemAnimator(new DefaultItemAnimator());
+
+        recyclerView.setAdapter(mAdapter);
+
+        prepareMenuData();
         return root;
     }
 
@@ -42,5 +60,14 @@ public class HomeFragment extends Fragment {
     public void onDestroyView() {
         super.onDestroyView();
         binding = null;
+    }
+    private void prepareMenuData() {
+
+
+        menuList.clear();
+        ModelHome menus = new ModelHome("Range Rover Sport","AED 3,980","Per Week",R.drawable.ic_dashboard_black_24dp);
+        menuList.add(menus);
+
+        mAdapter.notifyDataSetChanged();
     }
 }
