@@ -45,9 +45,16 @@ public class HomeFragment extends Fragment {
 
 
         // int mNoOfColumns = Utility.calculateNoOfColumns(getContext(),180);
-        RecyclerView.LayoutManager layoutManager = new GridLayoutManager(getContext(), 2);
+       // RecyclerView.LayoutManager layoutManager = new GridLayoutManager(getContext(), 1);
+        final GridLayoutManager manager = new GridLayoutManager(getContext(),2);
+        manager.setSpanSizeLookup(new GridLayoutManager.SpanSizeLookup() {
+            @Override
+            public int getSpanSize(int position) {
+                return mAdapter.isHeader(position) ? manager.getSpanCount() : 1;
+            }
+        });
         recyclerView.setHasFixedSize(true);
-        recyclerView.setLayoutManager(layoutManager);
+        recyclerView.setLayoutManager(manager);
         recyclerView.setItemAnimator(new DefaultItemAnimator());
 
         recyclerView.setAdapter(mAdapter);
@@ -65,9 +72,11 @@ public class HomeFragment extends Fragment {
 
 
         menuList.clear();
-        ModelHome menus = new ModelHome("Range Rover Sport","AED 3,980","Per Week",R.drawable.ic_dashboard_black_24dp);
-        menuList.add(menus);
-
+        ModelHome menus;
+        for(int i=0;i<4;i++){
+            menus = new ModelHome("Range Rover Sport","AED 3,980","Per Week",R.drawable.car_red);
+            menuList.add(menus);
+        }
         mAdapter.notifyDataSetChanged();
     }
 }

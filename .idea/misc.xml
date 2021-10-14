@@ -3,10 +3,22 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/Frankline SableX/AndroidStudioProjects/critical/DriveIt/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.22552083333333334" />
+        <entry key="..\:/Users/Frankline SableX/AndroidStudioProjects/critical/DriveIt/app/src/main/res/drawable/bottom_nav_background.xml" value="0.22552083333333334" />
+        <entry key="..\:/Users/Frankline SableX/AndroidStudioProjects/critical/DriveIt/app/src/main/res/drawable/button_background_pricing.xml" value="0.22552083333333334" />
+        <entry key="..\:/Users/Frankline SableX/AndroidStudioProjects/critical/DriveIt/app/src/main/res/drawable/ic_home_black_24dp.xml" value="0.22552083333333334" />
+        <entry key="..\:/Users/Frankline SableX/AndroidStudioProjects/critical/DriveIt/app/src/main/res/drawable/rounded_button_available.xml" value="0.17592592592592593" />
+        <entry key="..\:/Users/Frankline SableX/AndroidStudioProjects/critical/DriveIt/app/src/main/res/drawable/rounded_button_next.xml" value="0.22552083333333334" />
+        <entry key="..\:/Users/Frankline SableX/AndroidStudioProjects/critical/DriveIt/app/src/main/res/drawable/rounded_button_pricing.xml" value="0.22552083333333334" />
+        <entry key="..\:/Users/Frankline SableX/AndroidStudioProjects/critical/DriveIt/app/src/main/res/drawable/rounded_duration_chip.xml" value="0.22552083333333334" />
         <entry key="..\:/Users/Frankline SableX/AndroidStudioProjects/critical/DriveIt/app/src/main/res/layout/activity_home.xml" value="0.209375" />
+        <entry key="..\:/Users/Frankline SableX/AndroidStudioProjects/critical/DriveIt/app/src/main/res/layout/activity_test.xml" value="0.209375" />
+        <entry key="..\:/Users/Frankline SableX/AndroidStudioProjects/critical/DriveIt/app/src/main/res/layout/fragment_dashboard.xml" value="0.209375" />
         <entry key="..\:/Users/Frankline SableX/AndroidStudioProjects/critical/DriveIt/app/src/main/res/layout/fragment_home.xml" value="0.209375" />
+        <entry key="..\:/Users/Frankline SableX/AndroidStudioProjects/critical/DriveIt/app/src/main/res/layout/fragment_notifications.xml" value="0.209375" />
         <entry key="..\:/Users/Frankline SableX/AndroidStudioProjects/critical/DriveIt/app/src/main/res/layout/layout_home_header.xml" value="0.209375" />
         <entry key="..\:/Users/Frankline SableX/AndroidStudioProjects/critical/DriveIt/app/src/main/res/layout/layout_home_list.xml" value="0.209375" />
+        <entry key="..\:/Users/Frankline SableX/AndroidStudioProjects/critical/DriveIt/app/src/main/res/menu/bottom_nav_menu.xml" value="0.25" />
       </map>
     </option>
   </component>
