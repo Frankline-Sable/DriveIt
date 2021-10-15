@@ -38,9 +38,6 @@ public class HomeFragment extends Fragment {
     private RecyclerView recyclerView;
     private HomeAdapter mAdapter;
 
-    DatabaseReference db;
-    FirebaseHelper helper;
-
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         homeViewModel =
@@ -50,15 +47,8 @@ public class HomeFragment extends Fragment {
         View root = binding.getRoot();
 
         recyclerView = root.findViewById(R.id.home_recycler_view);
-
-        db=FirebaseDatabase.getInstance().getReference();
-        helper=new FirebaseHelper(db);
-        mAdapter = new HomeAdapter(getContext(),menuList);
-
-
-        // int mNoOfColumns = Utility.calculateNoOfColumns(getContext(),180);
-       // RecyclerView.LayoutManager layoutManager = new GridLayoutManager(getContext(), 1);
-        final GridLayoutManager manager = new GridLayoutManager(getContext(),2);
+        mAdapter = new HomeAdapter(getContext(), menuList);
+        final GridLayoutManager manager = new GridLayoutManager(getContext(), 2);
         manager.setSpanSizeLookup(new GridLayoutManager.SpanSizeLookup() {
             @Override
             public int getSpanSize(int position) {
@@ -72,7 +62,6 @@ public class HomeFragment extends Fragment {
         recyclerView.setAdapter(mAdapter);
 
 
-
         prepareMenuData();
         return root;
     }
@@ -82,6 +71,7 @@ public class HomeFragment extends Fragment {
         super.onDestroyView();
         binding = null;
     }
+
     private void prepareMenuData() {
         FirebaseDatabase mFirebaseInstance = FirebaseDatabase.getInstance();
         DatabaseReference mDatabase = mFirebaseInstance.getReference("usersDb/UserTable");
