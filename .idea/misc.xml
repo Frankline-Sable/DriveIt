@@ -3,6 +3,8 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/Frankline SableX/AndroidStudioProjects/critical/DriveIt/app/src/main/res/drawable-anydpi/ic_splash.xml" value="0.22552083333333334" />
+        <entry key="..\:/Users/Frankline SableX/AndroidStudioProjects/critical/DriveIt/app/src/main/res/drawable-v23/splash.xml" value="0.22552083333333334" />
         <entry key="..\:/Users/Frankline SableX/AndroidStudioProjects/critical/DriveIt/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.22552083333333334" />
         <entry key="..\:/Users/Frankline SableX/AndroidStudioProjects/critical/DriveIt/app/src/main/res/drawable/background_white1.xml" value="0.22552083333333334" />
         <entry key="..\:/Users/Frankline SableX/AndroidStudioProjects/critical/DriveIt/app/src/main/res/drawable/bottom_nav_background.xml" value="0.22552083333333334" />
@@ -16,11 +18,15 @@
         <entry key="..\:/Users/Frankline SableX/AndroidStudioProjects/critical/DriveIt/app/src/main/res/drawable/ic_outline_person_24.xml" value="0.22552083333333334" />
         <entry key="..\:/Users/Frankline SableX/AndroidStudioProjects/critical/DriveIt/app/src/main/res/drawable/ic_outline_settings_24.xml" value="0.2074074074074074" />
         <entry key="..\:/Users/Frankline SableX/AndroidStudioProjects/critical/DriveIt/app/src/main/res/drawable/rounded_button_available.xml" value="0.17592592592592593" />
+        <entry key="..\:/Users/Frankline SableX/AndroidStudioProjects/critical/DriveIt/app/src/main/res/drawable/rounded_button_login.xml" value="0.22552083333333334" />
         <entry key="..\:/Users/Frankline SableX/AndroidStudioProjects/critical/DriveIt/app/src/main/res/drawable/rounded_button_next.xml" value="0.22552083333333334" />
         <entry key="..\:/Users/Frankline SableX/AndroidStudioProjects/critical/DriveIt/app/src/main/res/drawable/rounded_button_pricing.xml" value="0.22552083333333334" />
         <entry key="..\:/Users/Frankline SableX/AndroidStudioProjects/critical/DriveIt/app/src/main/res/drawable/rounded_duration_chip.xml" value="0.22552083333333334" />
+        <entry key="..\:/Users/Frankline SableX/AndroidStudioProjects/critical/DriveIt/app/src/main/res/drawable/rounded_edit_text.xml" value="0.22552083333333334" />
+        <entry key="..\:/Users/Frankline SableX/AndroidStudioProjects/critical/DriveIt/app/src/main/res/drawable/splash.xml" value="0.13703703703703704" />
         <entry key="..\:/Users/Frankline SableX/AndroidStudioProjects/critical/DriveIt/app/src/main/res/layout/activity_available_cars.xml" value="0.25" />
         <entry key="..\:/Users/Frankline SableX/AndroidStudioProjects/critical/DriveIt/app/src/main/res/layout/activity_home.xml" value="0.33" />
+        <entry key="..\:/Users/Frankline SableX/AndroidStudioProjects/critical/DriveIt/app/src/main/res/layout/activity_login.xml" value="0.209375" />
         <entry key="..\:/Users/Frankline SableX/AndroidStudioProjects/critical/DriveIt/app/src/main/res/layout/activity_test.xml" value="0.209375" />
         <entry key="..\:/Users/Frankline SableX/AndroidStudioProjects/critical/DriveIt/app/src/main/res/layout/fragment_available_cars1.xml" value="0.33" />
         <entry key="..\:/Users/Frankline SableX/AndroidStudioProjects/critical/DriveIt/app/src/main/res/layout/fragment_available_cars2.xml" value="0.22" />
