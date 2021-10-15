@@ -2,6 +2,7 @@ package com.example.driveit;
 
 import android.os.Bundle;
 
+import com.example.driveit.fragment.HomeDefaultFragment;
 import com.example.driveit.ui.home.HomeFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
@@ -59,6 +60,9 @@ public class Home extends AppCompatActivity {
                         switch (i) {
                             case R.id.navigation_home:
                                 fragment = new HomeFragment();
+                                break;
+                            default:
+                                fragment = new HomeDefaultFragment();
                                 break;
                         }
                         getSupportFragmentManager().beginTransaction()

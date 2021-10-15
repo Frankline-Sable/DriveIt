@@ -25,8 +25,7 @@
         <activity
             android:name=".Home"
             android:exported="true"
-            android:label="Homepage"
-            android:theme="@style/Theme.DriveIt"/>
+            android:label="Homepage"/>
     </application>
 
 </manifest>
