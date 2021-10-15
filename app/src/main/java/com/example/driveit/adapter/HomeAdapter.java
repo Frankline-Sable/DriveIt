@@ -1,15 +1,22 @@
 package com.example.driveit.adapter;
 
 import android.content.Context;
+import android.content.Intent;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.driveit.AvailableCars;
+import com.example.driveit.Home;
+import com.example.driveit.LoginActivity;
 import com.example.driveit.R;
 import com.example.driveit.model.ModelHome;
 
@@ -53,6 +60,11 @@ public class HomeAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     @Override
     public void onBindViewHolder(RecyclerView.ViewHolder h, int position) {
         if (isHeader(position)) {
+            HomeHeaderViewHolder holder = (HomeHeaderViewHolder) h;
+            holder.buttonAvailable.setOnClickListener(v -> {
+                mContext.startActivity(new Intent(mContext, AvailableCars.class));
+
+            });
             return;
         }
 
@@ -86,8 +98,10 @@ public class HomeAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     }
 
     public static class HomeHeaderViewHolder extends RecyclerView.ViewHolder {
+        Button buttonAvailable;
         public HomeHeaderViewHolder(@NonNull View itemView) {
             super(itemView);
+            buttonAvailable = itemView.findViewById(R.id.buttonAvailable);
         }
     }
 

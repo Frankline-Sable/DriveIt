@@ -152,9 +152,10 @@
 
             <Button
                 style="?android:attr/buttonStyleSmall"
+                android:id="@+id/buttonAvailable"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true"
                 android:background="@drawable/rounded_button_available"
                 android:drawableRight="@drawable/ic_baseline_arrow_forward_24"
                 android:textAppearance="@style/TextAppearance.AppCompat.Large"
