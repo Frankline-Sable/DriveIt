@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/bottom_nav_best"
+        android:icon="@drawable/ic_baseline_analytics_24"
+        android:title="Best Match"
+        app:cnb_backgroundColor="@android:color/transparent"
+        app:cnb_iconColor="@color/purple_500"
+        app:cnb_textColor="@color/purple_500" />
+    <item
+        android:id="@+id/bottom_nav_highest"
+        app:cnb_backgroundColor="@android:color/transparent"
+        android:title="Highest Price"
+        app:cnb_iconColor="@color/purple_500"
+        app:cnb_textColor="@color/purple_500"
+        app:showAsAction="always" />
+    <item
+        android:id="@+id/bottom_nav_lowest"
+        android:title="Lowest Price"
+        app:cnb_backgroundColor="@android:color/transparent"
+        app:cnb_iconColor="@color/purple_500"
+        app:cnb_textColor="@color/purple_500"
+        app:showAsAction="always" />
+</menu>

@@ -1,19 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:android="http://schemas.android.com/apk/res/android">
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <item
         android:id="@+id/navigation_home"
-        android:icon="@drawable/ic_home_black_24dp"
-        android:title="@string/title_home" />
+        android:icon="@drawable/ic_outline_home_24"
+        android:title="@string/title_home"
+        app:cnb_backgroundColor="#D3D3D3"
+        app:cnb_iconColor="@color/purple_500"
+        app:cnb_unselectedColor="#303030"
+        app:cnb_radius="30dp"
+        app:cnb_iconSize="36dp"
+        app:cnb_iconTintMode="src_in"
+        app:cnb_textColor="@color/purple_500" />
 
     <item
-        android:id="@+id/navigation_dashboard"
-        android:icon="@drawable/ic_dashboard_black_24dp"
-        android:title="@string/title_dashboard" />
+        android:id="@+id/navigation_settings"
+        android:icon="@drawable/ic_outline_settings_24"
+
+        android:title="Settings" />
 
     <item
-        android:id="@+id/navigation_notifications"
-        android:icon="@drawable/ic_notifications_black_24dp"
-        android:title="@string/title_notifications" />
+        android:id="@+id/navigation_search"
+        android:icon="@drawable/ic_baseline_search_24"
+        android:title="Search" />
+
+    <item
+        android:id="@+id/navigation_user"
+        android:icon="@drawable/ic_outline_person_24"
+        android:title="User" />
 
 </menu>
