@@ -1,45 +1,54 @@
 package com.example.driveit.model;
 
 public class ModelHome {
-    private String objectTitle, objectPrice, objectDuration;
-    private int objectImage;
+    private int id;
+    private String title, price, duration, image;
 
-    public ModelHome(String objectTitle, String objectPrice, String objectDuration, int objectImage) {
-        this.objectTitle = objectTitle;
-        this.objectPrice = objectPrice;
-        this.objectDuration = objectDuration;
-        this.objectImage = objectImage;
+    public ModelHome(int id, String title, String price, String duration, String image) {
+        this.id = id;
+        this.title = title;
+        this.price = price;
+        this.duration = duration;
+        this.image = image;
     }
 
-    public String getObjectTitle() {
-        return objectTitle;
+    public int getId() {
+        return id;
     }
 
-    public void setObjectTitle(String objectTitle) {
-        this.objectTitle = objectTitle;
+    public void setId(int id) {
+        this.id = id;
     }
 
-    public String getObjectPrice() {
-        return objectPrice;
+    public String getTitle() {
+        return title;
     }
 
-    public void setObjectPrice(String objectPrice) {
-        this.objectPrice = objectPrice;
+    public void setTitle(String title) {
+        this.title = title;
     }
 
-    public String getObjectDuration() {
-        return objectDuration;
+    public String getPrice() {
+        return price;
     }
 
-    public void setObjectDuration(String objectDuration) {
-        this.objectDuration = objectDuration;
+    public void setPrice(String price) {
+        this.price = price;
     }
 
-    public int getObjectImage() {
-        return objectImage;
+    public String getDuration() {
+        return duration;
     }
 
-    public void setObjectImage(int objectImage) {
-        this.objectImage = objectImage;
+    public void setDuration(String duration) {
+        this.duration = duration;
+    }
+
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
     }
 }

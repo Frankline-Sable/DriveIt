@@ -1,0 +1,106 @@
+[
+  {
+    "id": 1,
+    "title": "Mercedes Benz SLS AMG",
+    "price": "13000",
+    "duration": "Daily",
+    "image": "https://i.ibb.co/pRwk8qB/1.png"
+  },
+  {
+    "id": 2,
+    "title": "Pininfaria Battista",
+    "price": "27999",
+    "duration": "Monthly",
+    "image": "https://i.ibb.co/f4LBxk0/2.png"
+  },
+  {
+    "id": 3,
+    "title": "Dodge Viper 2017",
+    "price": "8300",
+    "duration": "Weekly",
+    "image": "https://i.ibb.co/3MW1vP0/3.png"
+  },
+  {
+    "id": 4,
+    "title": "Nissan Versa Note 2017",
+    "price": "7499",
+    "duration": "Weekly",
+    "image": "https://i.ibb.co/3Mj93Jv/4.png"
+  },
+  {
+    "id": 5,
+    "title": "Nissan GT R",
+    "price": "1599",
+    "duration": "Daily",
+    "image": "https://i.ibb.co/QjdkZkq/5.png"
+  }
+,
+  {
+    "id": 6,
+    "title": "Pininfarina Sergio Ferrari",
+    "price": "12000",
+    "duration": "Weekly",
+    "image": "https://i.ibb.co/1zsFj9z/6.png"
+  }
+,
+  {
+    "id": 7,
+    "title": "Ford Mustang",
+    "price": "8450",
+    "duration": "Weekly",
+    "image": "https://i.ibb.co/mSDn0Z6/7.png"
+  }
+,
+  {
+    "id": 8,
+    "title": "Dodge Challenger SRT8",
+    "price": "2940",
+    "duration": "Daily",
+    "image": "https://i.ibb.co/pwCTH2j/8.png"
+  }
+,
+  {
+    "id": 9,
+    "title": "Volkswagen Golf GTD",
+    "price": "9820",
+    "duration": "Monthly",
+    "image": "https://i.ibb.co/wK1qc4T/9.png"
+  }
+,
+  {
+    "id": 10,
+    "title": "Porsche Cayman GT4",
+    "price": "6455",
+    "duration": "Weekly",
+    "image": "https://i.ibb.co/D5YX9mL/10.png"
+  }
+,
+  {
+    "id": 11,
+    "title": "Hyundai Sonata Hybrid",
+    "price": "17500",
+    "duration": "Monthly",
+    "image": "https://i.ibb.co/1TgCzJN/11.png"
+  },
+  {
+    "id": 12,
+    "title": "Volvo XC90 Hybrid SUV",
+    "price": "9400",
+    "duration": "Weekly",
+    "image": "https://i.ibb.co/5YdkpJH/12.png"
+  },
+  {
+    "id": 13,
+    "title": "Tesla Model S",
+    "price": "37555",
+    "duration": "Monthly",
+    "image": "https://i.ibb.co/p4MdhvP/13.png"
+  },
+  {
+    "id": 14,
+    "title": "Bugatti Veyron",
+    "price": "3900",
+    "duration": "Daily",
+    "image": "https://i.ibb.co/R0vQ23n/14.png"
+  }
+]

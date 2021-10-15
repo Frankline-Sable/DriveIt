@@ -14,6 +14,7 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
 import com.example.driveit.AvailableCars;
 import com.example.driveit.Home;
 import com.example.driveit.LoginActivity;
@@ -71,11 +72,18 @@ public class HomeAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
         final ModelHome model = mModelList.get(position - 1); // Subtract 1 for header
 
         HomeListViewHolder holder = (HomeListViewHolder) h;
-        ((HomeListViewHolder) holder).objectTitle.setText(model.getObjectTitle());
-        ((HomeListViewHolder) holder).objectPrice.setText(model.getObjectPrice());
-        ((HomeListViewHolder) holder).objectDuration.setText(model.getObjectDuration());
-        ((HomeListViewHolder) holder).durationTag.setText(holder.objectDuration.getText().toString());
-        ((HomeListViewHolder) holder).objectImage.setImageResource(model.getObjectImage());
+        ((HomeListViewHolder) holder).objectTitle.setText(model.getTitle());
+        ((HomeListViewHolder) holder).objectPrice.setText(model.getPrice());
+        ((HomeListViewHolder) holder).objectDuration.setText(model.getDuration());
+        ((HomeListViewHolder) holder).durationTag.setText(model.getDuration());
+        ImageView vw = ((HomeListViewHolder) holder).objectImage;
+
+
+        Glide.with(mContext)
+                .load(model.getImage())
+                .placeholder(R.drawable.loading)
+                .error(R.drawable.error)
+                .into(vw);
     }
 
     @Override
@@ -85,7 +93,7 @@ public class HomeAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
     public static class HomeListViewHolder extends RecyclerView.ViewHolder {
         ImageView objectImage;
-        TextView objectTitle, objectDuration, objectPrice,durationTag;
+        TextView objectTitle, objectDuration, objectPrice, durationTag;
 
         public HomeListViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -99,6 +107,7 @@ public class HomeAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
     public static class HomeHeaderViewHolder extends RecyclerView.ViewHolder {
         Button buttonAvailable;
+
         public HomeHeaderViewHolder(@NonNull View itemView) {
             super(itemView);
             buttonAvailable = itemView.findViewById(R.id.buttonAvailable);

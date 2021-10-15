@@ -25,7 +25,12 @@ import com.example.driveit.handler.PreferenceHandler;
 import com.example.driveit.network.APIClient;
 import com.example.driveit.network.APIInterface;
 import com.example.driveit.pojo.LoginResponse;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.android.material.snackbar.Snackbar;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -37,8 +42,11 @@ public class LoginActivity extends AppCompatActivity {
     private static final int REQUEST_READ_CONTACTS = 0;
     private EditText mEmailView, mPasswordView;
     private View mLoginFormView;
-    private Button loginButton;
+    private Button loginButton, firebaseButton;
     private PreferenceHandler preferenceHandler;
+    private Boolean firebaseLogin;
+    private FirebaseAuth mAuth;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -49,6 +57,7 @@ public class LoginActivity extends AppCompatActivity {
 
         preferenceHandler = new PreferenceHandler(this);
         apiInterface = APIClient.getClient().create(APIInterface.class);
+        mAuth = FirebaseAuth.getInstance();
 
         Window window = getWindow();
         window.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_HIDDEN);
@@ -56,7 +65,8 @@ public class LoginActivity extends AppCompatActivity {
         mLoginFormView = findViewById(R.id.login_form_view);
         mEmailView = (EditText) findViewById(R.id.emailEditText);
         mPasswordView = (EditText) findViewById(R.id.editTextPassword);
-        loginButton=findViewById(R.id.buttonLogin);
+        loginButton = findViewById(R.id.buttonLogin);
+        firebaseButton = findViewById(R.id.firebaseLogin);
 
 
         mPasswordView.setOnEditorActionListener((textView, id, keyEvent) -> {
@@ -67,8 +77,15 @@ public class LoginActivity extends AppCompatActivity {
             return false;
         });
         loginButton.setOnClickListener(v -> {
+            firebaseLogin = false;
             attemptLogin();
         });
+        firebaseButton.setOnClickListener(v -> {
+            firebaseLogin = true;
+            attemptLogin();
+        });
+
+
     }
 
     @Override
@@ -146,7 +163,10 @@ public class LoginActivity extends AppCompatActivity {
             NetworkInfo networkInfo = connMgr.getActiveNetworkInfo();
 
             if ((networkInfo != null && networkInfo.isConnected())) {
-                executeSignIn(email, password);
+                if (firebaseLogin)
+                    firebaseLoginUser(email, password);
+                else
+                    executeSignIn(email, password);
 
             } else {
 
@@ -175,7 +195,7 @@ public class LoginActivity extends AppCompatActivity {
     private void executeSignIn(final String mEmail, final String mPassword) {
         final ProgressDialog progressDialog = ProgressDialog.show(LoginActivity.this, "Signin you in", "Wait a sec...", true, true);
 
-        final LoginResponse login = new LoginResponse(mEmail,mPassword);
+        final LoginResponse login = new LoginResponse(mEmail, mPassword);
         Call<LoginResponse> call = apiInterface.createUser(login);
         call.enqueue(new Callback<LoginResponse>() {
             @Override
@@ -184,7 +204,7 @@ public class LoginActivity extends AppCompatActivity {
 
                 LoginResponse loginResponse = response.body();
                 Log.e("keshav", "loginResponse 1 --> " + loginResponse);
-                Toast.makeText(LoginActivity.this, "Welcome user" , Toast.LENGTH_LONG).show();
+                Toast.makeText(LoginActivity.this, "Welcome user", Toast.LENGTH_LONG).show();
                 startActivity(new Intent(LoginActivity.this, Home.class));
                 finish();
             }
@@ -193,7 +213,7 @@ public class LoginActivity extends AppCompatActivity {
             public void onFailure(@NonNull Call<LoginResponse> call, @NonNull Throwable t) {
                 progressDialog.dismiss();
                 Log.e("neutron_login", "message " + t.toString());
-                Snackbar.make(mLoginFormView, "Error is "+t.toString(), Snackbar.LENGTH_LONG).setAction("retry", v -> userExecLogin(v)).setActionTextColor(getResources().getColor(android.R.color.holo_red_light)).show();
+                Snackbar.make(mLoginFormView, "Error is " + t.toString(), Snackbar.LENGTH_LONG).setAction("retry", v -> userExecLogin(v)).setActionTextColor(getResources().getColor(android.R.color.holo_red_light)).show();
                 call.cancel();
             }
         });
@@ -206,4 +226,45 @@ public class LoginActivity extends AppCompatActivity {
         });
     }
 
+    @Override
+    public void onStart() {
+        super.onStart();
+        // Check if user is signed in (non-null) and update UI accordingly.
+        FirebaseUser currentUser = mAuth.getCurrentUser();
+        if (currentUser != null) {
+            reload();
+        }
+    }
+
+    private void reload() {
+
+    }
+
+    private void updateUI(FirebaseUser user) {
+        Log.e("error", "error error update ui");
+    }
+
+    private void firebaseLoginUser(final String mEmail, final String mPassword) {
+        final ProgressDialog progressDialog = ProgressDialog.show(LoginActivity.this, "Signin via firebase", "Wait a sec...", true, true);
+
+        mAuth.signInWithEmailAndPassword(mEmail, mPassword)
+                .addOnCompleteListener(this, task -> {
+                    progressDialog.dismiss();
+                    if (task.isSuccessful()) {
+                        // Sign in success, update UI with the signed-in user's information
+                        Log.e("v", "signInWithEmail:success");
+                        FirebaseUser user = mAuth.getCurrentUser();
+                        updateUI(user);
+                        startActivity(new Intent(LoginActivity.this, Home.class));
+                        finish();
+                    } else {
+                        // If sign in fails, display a message to the user.
+                        Log.e("TAG", "signInWithEmail:failure");
+                        Toast.makeText(LoginActivity.this, "Authentication failed.",
+                                Toast.LENGTH_SHORT).show();
+                        updateUI(null);
+                    }
+
+                });
+    }
 }
