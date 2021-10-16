@@ -1,13 +1,16 @@
 package com.example.driveit.model;
 
 public class ModelHome {
-    private int id;
-    private String title, price, duration, image;
+    private int id, price;
+    private String title, duration, image;
 
-    public ModelHome(int id, String title, String price, String duration, String image) {
+    public ModelHome() {
+    }
+
+    public ModelHome(int id, int price, String title, String duration, String image) {
         this.id = id;
-        this.title = title;
         this.price = price;
+        this.title = title;
         this.duration = duration;
         this.image = image;
     }
@@ -20,20 +23,20 @@ public class ModelHome {
         this.id = id;
     }
 
+    public int getPrice() {
+        return price;
+    }
+
+    public void setPrice(int price) {
+        this.price = price;
+    }
+
     public String getTitle() {
         return title;
     }
 
     public void setTitle(String title) {
         this.title = title;
-    }
-
-    public String getPrice() {
-        return price;
-    }
-
-    public void setPrice(String price) {
-        this.price = price;
     }
 
     public String getDuration() {

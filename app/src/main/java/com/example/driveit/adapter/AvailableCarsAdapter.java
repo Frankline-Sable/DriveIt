@@ -11,9 +11,12 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.recyclerview.widget.StaggeredGridLayoutManager;
 
+import com.bumptech.glide.Glide;
 import com.example.driveit.R;
 import com.example.driveit.model.ModelHome;
 
+import java.text.DecimalFormat;
+import java.text.NumberFormat;
 import java.util.List;
 
 public class AvailableCarsAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
@@ -40,20 +43,6 @@ public class AvailableCarsAdapter extends RecyclerView.Adapter<RecyclerView.View
 
         if (viewType == ITEM_VIEW_TYPE_HEADER) {
             View headerView = inflater.inflate(R.layout.layout_available_header, parent, false);
-           /* StaggeredGridLayoutManager.LayoutParams layoutParams = new StaggeredGridLayoutManager.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT);
-            layoutParams.setFullSpan(true);
-            headerView.setLayoutParams(layoutParams);*/
-            /*
-            ViewGroup.LayoutParams targetParams = itemView.getLayoutParams();
-            StaggeredGridLayoutManager.LayoutParams StaggerLayoutParams;
-            if (targetParams != null) {
-                StaggerLayoutParams = new StaggeredGridLayoutManager.LayoutParams(targetParams.width, targetParams.height);
-            } else {
-                StaggerLayoutParams = new StaggeredGridLayoutManager.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
-            }
-            StaggerLayoutParams.setFullSpan(true);
-            itemView.setLayoutParams(StaggerLayoutParams);
-             */
             return new HomeHeaderViewHolder(headerView);
         }else  if (viewType == ITEM_VIEW_TYPE_EMPTY) {
             View emptyView = inflater.inflate(R.layout.layout_available_empty, parent, false);
@@ -61,7 +50,7 @@ public class AvailableCarsAdapter extends RecyclerView.Adapter<RecyclerView.View
             return new EmptyViewHolder(emptyView);
         }
 
-        View cellView = inflater.inflate(R.layout.layout_available_list, parent, false);
+        View cellView = inflater.inflate(R.layout.layout_home_list, parent, false);
         return new HomeListViewHolder(cellView);
     }
 
@@ -87,14 +76,24 @@ public class AvailableCarsAdapter extends RecyclerView.Adapter<RecyclerView.View
             return;
 
 
-        final ModelHome model = mModelList.get(position - 2); // Subtract 1 for header
+        final ModelHome model = mModelList.get(position - 1); // Subtract 1 for header
 
-        HomeListViewHolder holder = (HomeListViewHolder) h;
-        ((HomeListViewHolder) holder).objectTitle.setText(model.getObjectTitle());
-        ((HomeListViewHolder) holder).objectPrice.setText(model.getObjectPrice());
-        ((HomeListViewHolder) holder).objectDuration.setText(model.getObjectDuration());
-        ((HomeListViewHolder) holder).durationTag.setText(holder.objectDuration.getText().toString());
-        ((HomeListViewHolder) holder).objectImage.setImageResource(model.getObjectImage());
+        AvailableCarsAdapter.HomeListViewHolder holder = (AvailableCarsAdapter.HomeListViewHolder) h;
+        ((AvailableCarsAdapter.HomeListViewHolder) holder).objectTitle.setText(model.getTitle());
+
+        ((AvailableCarsAdapter.HomeListViewHolder) holder).objectDuration.setText(model.getDuration());
+        ((AvailableCarsAdapter.HomeListViewHolder) holder).durationTag.setText(model.getDuration());
+        ImageView vw = ((AvailableCarsAdapter.HomeListViewHolder) holder).objectImage;
+
+
+        NumberFormat formatter = new DecimalFormat("#,###");
+        ((AvailableCarsAdapter.HomeListViewHolder) holder).objectPrice.setText(String.format("AED %s", formatter.format(model.getPrice())));
+
+        Glide.with(mContext)
+                .load(model.getImage())
+                .placeholder(R.drawable.loading)
+                .error(R.drawable.error)
+                .into(vw);
     }
 
     @Override

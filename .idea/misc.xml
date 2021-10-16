@@ -10,10 +10,12 @@
         <entry key="..\:/Users/Frankline SableX/AndroidStudioProjects/critical/DriveIt/app/src/main/res/drawable/bottom_nav_background.xml" value="0.22552083333333334" />
         <entry key="..\:/Users/Frankline SableX/AndroidStudioProjects/critical/DriveIt/app/src/main/res/drawable/button_background_pricing.xml" value="0.22552083333333334" />
         <entry key="..\:/Users/Frankline SableX/AndroidStudioProjects/critical/DriveIt/app/src/main/res/drawable/ic_baseline_analytics_24.xml" value="0.22552083333333334" />
+        <entry key="..\:/Users/Frankline SableX/AndroidStudioProjects/critical/DriveIt/app/src/main/res/drawable/ic_baseline_login_24.xml" value="0.22552083333333334" />
         <entry key="..\:/Users/Frankline SableX/AndroidStudioProjects/critical/DriveIt/app/src/main/res/drawable/ic_baseline_search_24.xml" value="0.2074074074074074" />
         <entry key="..\:/Users/Frankline SableX/AndroidStudioProjects/critical/DriveIt/app/src/main/res/drawable/ic_baseline_settings_24.xml" value="0.2074074074074074" />
         <entry key="..\:/Users/Frankline SableX/AndroidStudioProjects/critical/DriveIt/app/src/main/res/drawable/ic_dashboard_black_24dp.xml" value="0.22552083333333334" />
         <entry key="..\:/Users/Frankline SableX/AndroidStudioProjects/critical/DriveIt/app/src/main/res/drawable/ic_home_black_24dp.xml" value="0.22552083333333334" />
+        <entry key="..\:/Users/Frankline SableX/AndroidStudioProjects/critical/DriveIt/app/src/main/res/drawable/ic_login_icon.xml" value="0.22552083333333334" />
         <entry key="..\:/Users/Frankline SableX/AndroidStudioProjects/critical/DriveIt/app/src/main/res/drawable/ic_outline_home_24.xml" value="0.22552083333333334" />
         <entry key="..\:/Users/Frankline SableX/AndroidStudioProjects/critical/DriveIt/app/src/main/res/drawable/ic_outline_person_24.xml" value="0.22552083333333334" />
         <entry key="..\:/Users/Frankline SableX/AndroidStudioProjects/critical/DriveIt/app/src/main/res/drawable/ic_outline_settings_24.xml" value="0.2074074074074074" />
@@ -24,8 +26,9 @@
         <entry key="..\:/Users/Frankline SableX/AndroidStudioProjects/critical/DriveIt/app/src/main/res/drawable/rounded_duration_chip.xml" value="0.22552083333333334" />
         <entry key="..\:/Users/Frankline SableX/AndroidStudioProjects/critical/DriveIt/app/src/main/res/drawable/rounded_edit_text.xml" value="0.22552083333333334" />
         <entry key="..\:/Users/Frankline SableX/AndroidStudioProjects/critical/DriveIt/app/src/main/res/drawable/splash.xml" value="0.13703703703703704" />
+        <entry key="..\:/Users/Frankline SableX/AndroidStudioProjects/critical/DriveIt/app/src/main/res/font/ubuntu.xml" value="0.23958333333333334" />
         <entry key="..\:/Users/Frankline SableX/AndroidStudioProjects/critical/DriveIt/app/src/main/res/layout/activity_available_cars.xml" value="0.25" />
-        <entry key="..\:/Users/Frankline SableX/AndroidStudioProjects/critical/DriveIt/app/src/main/res/layout/activity_home.xml" value="0.2" />
+        <entry key="..\:/Users/Frankline SableX/AndroidStudioProjects/critical/DriveIt/app/src/main/res/layout/activity_home.xml" value="0.1" />
         <entry key="..\:/Users/Frankline SableX/AndroidStudioProjects/critical/DriveIt/app/src/main/res/layout/activity_login.xml" value="0.209375" />
         <entry key="..\:/Users/Frankline SableX/AndroidStudioProjects/critical/DriveIt/app/src/main/res/layout/activity_test.xml" value="0.209375" />
         <entry key="..\:/Users/Frankline SableX/AndroidStudioProjects/critical/DriveIt/app/src/main/res/layout/fragment_available_cars1.xml" value="0.33" />
@@ -44,6 +47,7 @@
         <entry key="..\:/Users/Frankline SableX/AndroidStudioProjects/critical/DriveIt/app/src/main/res/layout/layout_home_list.xml" value="0.209375" />
         <entry key="..\:/Users/Frankline SableX/AndroidStudioProjects/critical/DriveIt/app/src/main/res/menu/bottom_nav_available_cars.xml" value="0.1" />
         <entry key="..\:/Users/Frankline SableX/AndroidStudioProjects/critical/DriveIt/app/src/main/res/menu/bottom_nav_menu.xml" value="0.25" />
+        <entry key="..\:/Users/Frankline SableX/AndroidStudioProjects/critical/DriveIt/app/src/main/res/menu/option_home_menu.xml" value="0.209375" />
       </map>
     </option>
   </component>

@@ -16,18 +16,16 @@
             android:name=".LoginActivity"
             android:exported="true"
             android:theme="@style/Theme.App.Starting">
-
-        </activity>
-        <activity
-            android:name=".Home"
-            android:exported="true"
-            android:label="Homepage">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".Home"
+            android:exported="true"
+            android:label="My Homepage"/>
         <activity
             android:name=".AvailableCars"
             android:exported="true"

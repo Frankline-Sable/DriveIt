@@ -3,7 +3,9 @@ package com.example.driveit.adapter;
 import android.content.Context;
 import android.content.Intent;
 import android.util.Log;
+import android.view.GestureDetector;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
@@ -20,7 +22,10 @@ import com.example.driveit.Home;
 import com.example.driveit.LoginActivity;
 import com.example.driveit.R;
 import com.example.driveit.model.ModelHome;
+import com.google.android.material.snackbar.Snackbar;
 
+import java.text.DecimalFormat;
+import java.text.NumberFormat;
 import java.util.List;
 
 public class HomeAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
@@ -66,6 +71,12 @@ public class HomeAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
                 mContext.startActivity(new Intent(mContext, AvailableCars.class));
 
             });
+            holder.viewMore.setOnClickListener(v -> {
+                Toast.makeText(mContext, "More coming soon", Toast.LENGTH_SHORT).show();
+            });
+            holder.myGarage.setOnClickListener(v -> {
+                Snackbar.make(holder.myGarage,"Garage not ready",Snackbar.LENGTH_SHORT).show();
+            });
             return;
         }
 
@@ -73,11 +84,14 @@ public class HomeAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
         HomeListViewHolder holder = (HomeListViewHolder) h;
         ((HomeListViewHolder) holder).objectTitle.setText(model.getTitle());
-        ((HomeListViewHolder) holder).objectPrice.setText(model.getPrice());
+
         ((HomeListViewHolder) holder).objectDuration.setText(model.getDuration());
         ((HomeListViewHolder) holder).durationTag.setText(model.getDuration());
         ImageView vw = ((HomeListViewHolder) holder).objectImage;
 
+
+        NumberFormat formatter = new DecimalFormat("#,###");
+        ((HomeListViewHolder) holder).objectPrice.setText(String.format("AED %s", formatter.format(model.getPrice())));
 
         Glide.with(mContext)
                 .load(model.getImage())
@@ -106,11 +120,14 @@ public class HomeAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     }
 
     public static class HomeHeaderViewHolder extends RecyclerView.ViewHolder {
-        Button buttonAvailable;
+        ImageView buttonAvailable;
+        Button viewMore,myGarage;
 
         public HomeHeaderViewHolder(@NonNull View itemView) {
             super(itemView);
             buttonAvailable = itemView.findViewById(R.id.buttonAvailable);
+            viewMore =  itemView.findViewById(R.id.view_more);
+            myGarage= itemView.findViewById(R.id.view_garage);
         }
     }
 

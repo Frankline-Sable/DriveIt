@@ -1,6 +1,7 @@
 package com.example.driveit.fragment;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,10 +17,14 @@ import androidx.recyclerview.widget.StaggeredGridLayoutManager;
 
 import com.example.driveit.R;
 import com.example.driveit.adapter.AvailableCarsAdapter;
-import com.example.driveit.adapter.HomeAdapter;
 import com.example.driveit.databinding.FragmentHomeBinding;
 import com.example.driveit.model.ModelHome;
 import com.example.driveit.ui.home.HomeViewModel;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -46,13 +51,6 @@ public class AvailableCars1  extends Fragment {
 
         StaggeredGridLayoutManager manager=new StaggeredGridLayoutManager(2,StaggeredGridLayoutManager.VERTICAL);
 
-        /*final GridLayoutManager manager = new GridLayoutManager(getContext(),2);
-        manager.setSpanSizeLookup(new GridLayoutManager.SpanSizeLookup() {
-            @Override
-            public int getSpanSize(int position) {
-                return mAdapter.isHeader(position) ? manager.getSpanCount() : 1;
-            }
-        });*/
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(manager);
         recyclerView.setItemAnimator(new DefaultItemAnimator());
@@ -69,14 +67,26 @@ public class AvailableCars1  extends Fragment {
         binding = null;
     }
     private void prepareMenuData() {
+        FirebaseDatabase mFirebaseInstance = FirebaseDatabase.getInstance();
+        DatabaseReference mDatabase = mFirebaseInstance.getReference();
 
+        Log.e("red","red"+mDatabase);
+        mDatabase.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                menuList.clear();
+                for (DataSnapshot dataSnapshot1 : snapshot.getChildren()) {
+                    ModelHome car = dataSnapshot1.getValue(ModelHome.class);
+                    menuList.add(car);
+                }
+                mAdapter.notifyDataSetChanged();
+            }
 
-        menuList.clear();
-        ModelHome menus;
-        for(int i=0;i<4;i++){
-            menus = new ModelHome("Range Rover Sport","AED 3,980","Per Week",R.drawable.car_red);
-            menuList.add(menus);
-        }
-        mAdapter.notifyDataSetChanged();
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+
     }
 }

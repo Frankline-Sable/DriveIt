@@ -1,10 +1,12 @@
 package com.example.driveit.ui.home;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -62,6 +64,8 @@ public class HomeFragment extends Fragment {
         recyclerView.setAdapter(mAdapter);
 
 
+
+
         prepareMenuData();
         return root;
     }
@@ -74,8 +78,9 @@ public class HomeFragment extends Fragment {
 
     private void prepareMenuData() {
         FirebaseDatabase mFirebaseInstance = FirebaseDatabase.getInstance();
-        DatabaseReference mDatabase = mFirebaseInstance.getReference("usersDb/UserTable");
+        DatabaseReference mDatabase = mFirebaseInstance.getReference();
 
+        Log.e("red","red"+mDatabase);
         mDatabase.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {

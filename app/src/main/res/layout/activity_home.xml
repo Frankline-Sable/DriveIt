@@ -10,9 +10,7 @@
         android:id="@+id/nav_view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:cnb_badgeColor="#888888"
-        app:cnb_backgroundColor="#888888"
-        app:cnb_textColor="@color/purple_500"
+        app:cnb_badgeColor="@android:color/holo_red_light"
         app:cnb_unselectedColor="#303030"
         app:cnb_radius="30dp"
         app:cnb_iconSize="36dp"
@@ -25,8 +23,6 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-
-
         />
     <!--
 

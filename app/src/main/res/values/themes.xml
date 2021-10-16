@@ -12,6 +12,7 @@
         <!-- Status bar color. -->
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
+        <item name="android:fontFamily">@font/ubuntu_regular</item>
     </style>
 
     <style name="FullScreen.DriveIt" parent="@style/Theme.AppCompat.Light.NoActionBar">
@@ -19,11 +20,13 @@
         <item name="android:windowActionBar">false</item>
         <item name="android:windowFullscreen">true</item>
         <item name="android:windowContentOverlay">@null</item>
+        <item name="android:fontFamily">@font/ubuntu_regular</item>
     </style>
     <style name="Theme.App.Starting" parent="Theme.SplashScreen">
         <item name="windowSplashScreenBackground">#2A2B72</item>
         <item name="windowSplashScreenAnimatedIcon">@drawable/ic_splash</item>
         <item name="windowSplashScreenAnimationDuration">800</item>
         <item name="postSplashScreenTheme">@style/FullScreen.DriveIt</item>
+        <item name="android:fontFamily">@font/ubuntu_regular</item>
     </style>
 </resources>
